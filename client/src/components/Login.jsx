@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import AuthContext from "../context/AuthContext";
 import useInput from "../hooks/useInput";
@@ -32,6 +32,7 @@ const Login = () => {
     e.preventDefault();
     if (!formValid) return alert("Invalid Credentials");
     login(username, password, setIsAuth);
+    if (!localStorage.userData) return;
     navigate("/");
   };
 
@@ -40,7 +41,7 @@ const Login = () => {
       <h1 className="text-white py-12 text-3xl">Login</h1>
       <form onSubmit={submitHandler}>
         <div className="p-5 sm:w-96 w-full flex flex-col justify-start items-center blue-glassmorphism">
-          <label htmlFor="email">Email</label>
+          <label htmlFor="username ">Username</label>
           <input
             type="username"
             id="username"
@@ -49,7 +50,9 @@ const Login = () => {
             value={username}
             className="my-2 w-full rounded-sm p-2 outline-none bg-transparent text-white border-none text-sm white-glassmorphism"
           />
-          {usernameInvalid && <p>please enter valid email</p>}
+          {usernameInvalid && (
+            <p className="text-red-900">Please enter valid email</p>
+          )}
           <label htmlFor="password">Password</label>
           <input
             type="password"
@@ -59,7 +62,9 @@ const Login = () => {
             value={password}
             className="my-2 w-full rounded-sm p-2 outline-none bg-transparent text-white border-none text-sm white-glassmorphism"
           />
-          {passwordInvalid && <p>please enter valid password</p>}
+          {passwordInvalid && (
+            <p className="text-red-900">Please enter valid password</p>
+          )}
           <button
             type="submit"
             className="text-white w-full mt-2 border-[1px] p-2 border-[#3d4f7c] hover:bg-[#3d4f7c] rounded-full cursor-pointer"

@@ -4,7 +4,6 @@ import useInput from "../hooks/useInput";
 import { register } from "../services";
 
 const Register = () => {
-  const passwordRef = useRef();
   const navigate = useNavigate();
 
   const {
@@ -26,23 +25,24 @@ const Register = () => {
     blurHandler: passwordBlurHandler,
     reset: passwordReset,
   } = useInput((password) => password.trim().length > 5);
-
+  const passwordRef = useRef(password.value);
   const {
     value: password2,
     hasError: password2Invalid,
     valid: password2Valid,
     changeHandler: password2ChangeHandler,
     blurHandler: password2BlurHandler,
+
     reset: password2Reset,
-  } = useInput((p) => p === passwordRef?.current?.value);
+  } = useInput((p) => p == passwordRef?.current?.value);
 
   const formValid = usernameValid & passwordValid && password2Valid;
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    // if (!formValid) {
-    //   return alert("Missing information");
-    // }
+    if (!formValid) {
+      return alert("Some information seems incorrect");
+    }
     register(username, password);
     navigate("/login");
   };
@@ -64,7 +64,7 @@ const Register = () => {
             className="my-2 w-full rounded-sm p-2 outline-none bg-transparent text-white border-none text-sm white-glassmorphism"
           />
           {usernameInvalid && <p className="text-red-900">Invalid username</p>}
-          <label htmlFor="passwrod">Password</label>
+          <label htmlFor="password">Password</label>
           <input
             type="password"
             name="password"
@@ -73,15 +73,16 @@ const Register = () => {
             value={password}
             autoComplete="off"
             onBlur={passwordBlurHandler}
+            ref={passwordRef}
             className="my-2 w-full rounded-sm p-2 outline-none bg-transparent text-white border-none text-sm white-glassmorphism"
           />
           {passwordInvalid && <p className="text-red-900">Invalid password</p>}
-          <label htmlFor="username">Repeat Password</label>
+          <label htmlFor="password2">Repeat Password</label>
           <input
             type="password"
             name="password2"
-            id="password2"
             onChange={password2ChangeHandler}
+            id="password2"
             value={password2}
             autoComplete="off"
             onBlur={password2BlurHandler}

@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import { TransactionContext } from "../context/TransactionContext";
-import dummyData from "../utils/dummyData";
 
 import TransactionCard from "./TransactionCard";
 const Transactions = () => {
@@ -14,7 +13,7 @@ const Transactions = () => {
             Latest Transactions
           </h3>
         ) : (
-          <h3 className="text-white text-3xl text-center my-2">
+          <h3 className="text-white text-3xl text-center my-2 min-h-screen items-center p-y">
             Connect your account to see the lastest transactions
           </h3>
         )}

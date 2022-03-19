@@ -46,7 +46,7 @@ const Links = () => {
       <>
         <li className="mx-4 cursor-pointer">
           <NavLink
-            to="/welcome"
+            to="/"
             className={({ isActive }) => (isActive ? "active" : "")}
           >
             Welcome
