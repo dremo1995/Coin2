@@ -3,8 +3,14 @@ export const login = async (username, password, applyFunc) => {
   const body = JSON.stringify({ username, password });
   const headers = { "Content-Type": "application/json" };
   const res = await fetch(url, { method: "POST", body, headers });
-
-  if (res.ok) {
+  console.log(res);
+  if (res.status == "401") {
+    alert("Invalid Crednetials");
+    return;
+  } else if (res.status == "500") {
+    alert("user not found");
+    return;
+  } else {
     const result = await res.json();
     localStorage.setItem(
       "userData",
@@ -15,7 +21,7 @@ export const login = async (username, password, applyFunc) => {
       })
     );
     applyFunc(true);
-  } else applyFunc(false);
+  }
 };
 
 export const register = async (username, password) => {

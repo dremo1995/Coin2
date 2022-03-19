@@ -8,7 +8,7 @@ const reducer = (state, action) => {
     case "BLUR":
       return { value: state.value, touched: true };
     case "RESET":
-      return { initialState };
+      return initialState;
     default:
       return initialState;
   }

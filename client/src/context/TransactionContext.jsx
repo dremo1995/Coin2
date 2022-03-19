@@ -2,7 +2,6 @@ import React, { createContext, useEffect, useState } from "react";
 import { ethers } from "ethers";
 
 import { contractABI, contractAddress } from "../utils/constants";
-import { BsTelephoneForward } from "react-icons/bs";
 
 export const TransactionContext = React.createContext();
 
