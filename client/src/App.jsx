@@ -21,25 +21,11 @@ const App = () => {
           <Navbar />
         </div>
         <Routes>
-          {!isAuth ? (
-            <>
-              <Route path="/" element={<Welcome />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/register" element={<Register />} />
-            </>
-          ) : (
-            <>
-              <Route path="/" element={<Welcome />} />
-              <Route path="/services" element={<Services />} />
-              <Route path="/transactions" element={<Transactions />} />
-              <Route path="/register" element={<Register />} />
-            </>
-          )}
+          <Route path="/" element={<Welcome />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/market" element={<Transactions />} />
+          <Route path="/register" element={<Register />} />
         </Routes>
-        {/* <Welcome />
-        <Services />
-        <Transactions />
-        <Footer /> */}
         <Footer />
       </div>
     </AuthContext.Provider>

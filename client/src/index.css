@@ -98,6 +98,10 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+.active {
+  color: hsla(222, 81%, 65%, 1);
+}
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
