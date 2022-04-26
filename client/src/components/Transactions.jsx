@@ -11,9 +11,16 @@ const Transactions = () => {
         {connectedAccount ? (
           <h3 className="text-white text-3xl text-center my-2">Transactions</h3>
         ) : (
-          <h3 className="text-white text-3xl text-center my-2 min-h-screen items-center p-y">
-            Connect your account to see the lastest transactions
-          </h3>
+          <div className="items-center justify-center min-h-screen items-center p-y">
+            <h3 className="text-white text-3xl text-center my-4">
+              Connect your account to see the lastest transactions
+            </h3>
+            <img
+              src="../../images/Dracoin_head.png"
+              alt="Dracoin_logo"
+              className="justify-center ml-20 mt-20"
+            />
+          </div>
         )}
         <div className="flex flex-wrap justify-center items-cetner mt-10">
           {transactions.reverse().map((transaction, i) => (

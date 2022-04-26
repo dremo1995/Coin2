@@ -15,10 +15,11 @@ const Navbar = () => {
           <img src={logo} alt="logo" className="w-44 p-0 cursor-pointer" />
         </Link>
       </div>
-      <ul className="text-white md:flex hidden list-none flex-row justify-between items-center flex-initial">
-        <Links />
-      </ul>
+
       <div className="flex relative">
+        <ul className="text-white md:flex hidden list-none flex-row justify-between items-center flex-initial mx-16">
+          <Links />
+        </ul>
         {!toggleMenu && (
           <HiMenuAlt4
             fontSize={28}

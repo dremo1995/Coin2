@@ -1,15 +1,8 @@
-import {
-  Navbar,
-  Footer,
-  Welcome,
-  Services,
-  Transactions,
-  Login,
-  Register,
-} from "./components/index";
+import { Navbar, Footer, Welcome, Services } from "./components/index";
 import { useState } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import AuthContext from "./context/AuthContext";
+import Market from "./components/Market";
 
 const App = () => {
   const [isAuth, setIsAuth] = useState(localStorage.getItem("userData"));
@@ -23,8 +16,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Welcome />} />
           <Route path="/services" element={<Services />} />
-          <Route path="/market" element={<Transactions />} />
-          <Route path="/register" element={<Register />} />
+          <Route path="/market" element={<Market />} />
         </Routes>
         <Footer />
       </div>

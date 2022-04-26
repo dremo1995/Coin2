@@ -1,18 +1,7 @@
-import React, { useContext } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
-import AuthContext from "../context/AuthContext";
-import { logout } from "../services";
+import React from "react";
+import { NavLink } from "react-router-dom";
 
 const Links = () => {
-  const navigate = useNavigate();
-  const { setIsAuth, isAuth } = useContext(AuthContext);
-  const logoutHandler = async () => {
-    const res = await logout();
-    console.log(res);
-    setIsAuth(false);
-    navigate("/");
-  };
-
   let content = (
     <>
       <li className="mx-4 cursor-pointer">

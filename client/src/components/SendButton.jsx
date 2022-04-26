@@ -1,10 +1,7 @@
 import React, { useContext } from "react";
-import AuthContext from "../context/AuthContext";
-import { NavLink, useNavigate } from "react-router-dom";
 import { TransactionContext } from "../context/TransactionContext";
 
 const SendButton = () => {
-  const { isAuth, setIsAuth } = useContext(AuthContext);
   const {
     connectWallet,
     connectedAccount,
@@ -41,17 +38,6 @@ const SendButton = () => {
     </button>
   );
 
-  // if (!isAuth) {
-  //   content = (
-  //     <button
-  //       type="button"
-  //       className="text-white w-full mt-2 border-[1px] p-2 border-[#3d4f7c] rounded-full cursor-pointer"
-  //       formNoValidate
-  //     >
-  //       <NavLink to="/register">Register to send crypto</NavLink>
-  //     </button>
-  //   );
-  // }
   return content;
 };
 
