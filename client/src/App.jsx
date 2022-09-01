@@ -1,15 +1,8 @@
-import {
-  Navbar,
-  Footer,
-  Welcome,
-  Services,
-  Transactions,
-  Login,
-  Register,
-} from "./components/index";
+import { Navbar, Footer, Welcome, Services } from "./components/index";
 import { useState } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import AuthContext from "./context/AuthContext";
+import Market from "./components/Market";
 
 const App = () => {
   const [isAuth, setIsAuth] = useState(localStorage.getItem("userData"));
@@ -21,25 +14,10 @@ const App = () => {
           <Navbar />
         </div>
         <Routes>
-          {!isAuth ? (
-            <>
-              <Route path="/" element={<Welcome />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/register" element={<Register />} />
-            </>
-          ) : (
-            <>
-              <Route path="/" element={<Welcome />} />
-              <Route path="/services" element={<Services />} />
-              <Route path="/transactions" element={<Transactions />} />
-              <Route path="/register" element={<Register />} />
-            </>
-          )}
+          <Route path="/" element={<Welcome />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/market" element={<Market />} />
         </Routes>
-        {/* <Welcome />
-        <Services />
-        <Transactions />
-        <Footer /> */}
         <Footer />
       </div>
     </AuthContext.Provider>
