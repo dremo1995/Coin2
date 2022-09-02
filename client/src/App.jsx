@@ -1,26 +1,19 @@
-import { Navbar, Footer, Welcome, Services } from "./components/index";
-import { useState } from "react";
+import { Navbar, Footer, Welcome, Services, Market } from "./components/index";
 import { Routes, Route, useNavigate } from "react-router-dom";
-import AuthContext from "./context/AuthContext";
-import Market from "./components/Market";
 
 const App = () => {
-  const [isAuth, setIsAuth] = useState(localStorage.getItem("userData"));
-
   return (
-    <AuthContext.Provider value={{ isAuth: isAuth, setIsAuth }}>
-      <div className="min-h-screen">
-        <div className="gradient-bg-welcome">
-          <Navbar />
-        </div>
-        <Routes>
-          <Route path="/" element={<Welcome />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/market" element={<Market />} />
-        </Routes>
-        <Footer />
+    <div className="min-h-screen gradient-bg-transactions">
+      <div className="gradient-bg-welcome">
+        <Navbar />
       </div>
-    </AuthContext.Provider>
+      <Routes>
+        <Route path="/" element={<Welcome />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/market" element={<Market />} />
+      </Routes>
+      <Footer />
+    </div>
   );
 };
 

@@ -1,34 +1,27 @@
 import React from "react";
-import { options } from "../services";
-import Graph from "./Graph";
+import { Graph } from "./index.js";
 
-const option = await fetch(
-  "https://coingecko.p.rapidapi.com/coins/markets?vs_currency=usd&page=1&per_page=100&order=market_cap_desc",
-  options
-)
-  .then((response) => response.json())
-  .catch((err) => console.error(err));
-
-const graphData = option.slice(0, 10);
-
-const Market = () => {
-  console.log(graphData);
-  return (
-    <div className="min-h-screen gradient-bg-transactions">
-      <ul>
-        {graphData.map((coin, i) => {
-          <Graph
-            key={i}
-            image={coin.image}
-            name={coin.name}
-            high={coin.high_24h}
-            low={coin.low_24h}
-            current={coin.current_price}
-          />;
-        })}
-      </ul>
+const Market = () => (
+  <div className="min-h-screen">
+    <div className="text-white text-center font-extrabold text-2xl">
+      <span className="pr-2 ">🚀</span>Trending Crypto{" "}
+      <span className="pl-2">🚀</span>
     </div>
-  );
-};
+    <Graph />
+    <div className="text-white text-center">
+      This Graph is powered by
+      <a
+        src="https://www.coingecko.com/"
+        className="cursor-pointer font-bold justify-center items-center"
+      >
+        <img
+          src="https://static.coingecko.com/s/coingecko-logo-8903d34ce19ca4be1c81f0db30e924154750d208683fad7ae6f2ce06c76d0a56.png"
+          alt="coin-gecko"
+          className="content-center"
+        />
+      </a>
+    </div>
+  </div>
+);
 
 export default Market;

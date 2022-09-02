@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 
 const Links = () => {
+  const [toggleMenu, setToggleMenu] = useState(true);
   let content = (
     <>
       <li className="mx-4 cursor-pointer">
