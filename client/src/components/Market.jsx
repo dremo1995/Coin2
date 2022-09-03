@@ -8,7 +8,7 @@ const Market = () => (
       <span className="pl-2">🚀</span>
     </div>
     <Graph />
-    <div className="text-white text-center">
+    <div className="text-white text-center items-center">
       This Graph is powered by
       <a
         src="https://www.coingecko.com/"
@@ -17,7 +17,7 @@ const Market = () => (
         <img
           src="https://static.coingecko.com/s/coingecko-logo-8903d34ce19ca4be1c81f0db30e924154750d208683fad7ae6f2ce06c76d0a56.png"
           alt="coin-gecko"
-          className="content-center"
+          className="ml-auto mr-auto"
         />
       </a>
     </div>

@@ -10,36 +10,40 @@ const option = await fetch(
 const graphData = option.coins;
 console.log(graphData);
 
-const divClass = "m-2 ";
-
 const Graph = () => (
-  <div className="p-6">
-    <table className="table-auto md:table-fixed text-white border border-separate border-slate-300 rounded-lg w-full h-full">
+  <div className="p-8">
+    <table className="table-auto md:table-fixed text-white border border-collapse border-slate-300 rounded-lg w-full h-full border-r-0 border-l-0">
       <thead>
-        <th></th>
-        <th className="border border-slate-300 rounded-md p-2">Coin Name</th>
-        <th className="border border-slate-300 rounded-md p-2">Rank</th>
-        <th className="border border-slate-300 rounded-md p-2">Symbol</th>
+        <tr>
+          <th></th>
+          <th className=" rounded-md p-2">Coin Name</th>
+          <th className="border border-r-0 border-l-0 rounded-md p-2 py-4">
+            Rank
+          </th>
+          <th className="border border-r-0 border-l-0 rounded-md p-2">
+            Symbol
+          </th>
+        </tr>
       </thead>
       <tbody>
         {graphData.map((coin) => (
           <tr key={coin.item.coin_id}>
-            <td className="border border-slate-300 rounded-md">
-              <div className="bg-slate-400 rounded-lg h-fit w-fit">
+            <td className="border border-r-0 border-l-0 rounded-md place-content-center py-2">
+              <div>
                 <img
                   src={coin.item.small}
                   alt={coin.item.name}
-                  className="w-fit h-fit"
+                  className="ml-auto mr-auto"
                 />
               </div>
             </td>
-            <td className="border border-slate-300 rounded-md text-center">
+            <td className="border border-r-0 border-l-0 rounded-md text-center">
               {coin.item.name}
             </td>
-            <td className="border border-slate-300 rounded-md text-center">
+            <td className="border border-r-0 border-l-0 rounded-md text-center">
               {coin.item.market_cap_rank}
             </td>
-            <td className="border border-slate-300 rounded-md text-center">
+            <td className="border border-r-0 border-l-0 rounded-md text-center">
               {coin.item.symbol}
             </td>
           </tr>
