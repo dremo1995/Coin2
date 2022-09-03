@@ -2,7 +2,7 @@ import React from "react";
 import { Graph } from "./index.js";
 
 const Market = () => (
-  <div className="min-h-screen">
+  <div className="h-screen pt-20">
     <div className="text-white text-center font-extrabold text-2xl">
       <span className="pr-2 ">🚀</span>Trending Crypto{" "}
       <span className="pl-2">🚀</span>
